@@ -1,0 +1,20 @@
+supertrend:
+  period: 10
+  multiplier: 3.0
+atr:
+  period: 14
+adx:
+  period: 14
+  threshold: 0.0
+fade:
+  lookback: 50
+  veto_abs_z: 0.0
+risk:
+  risk_per_trade: 0.01
+  stop_atr_cap: 1.5
+fees:
+  taker_bps: 4
+  maker_bps: 2
+timeframe: "15m"
+funding:
+  accrue: true

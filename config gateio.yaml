@@ -1,0 +1,31 @@
+exchange: gateio
+enabled: true
+testnet: true
+assets:
+  BTC_USDT:
+    enabled: true
+    capital_usd: 4000
+    leverage: 10
+    exit:
+      mode: both
+      fixed_r_tp: null
+      max_hold_bars: null
+      stop_atr_cap: 1.5
+  ETH_USDT:
+    enabled: true
+    capital_usd: 2500
+    leverage: 5
+    exit:
+      mode: both
+      fixed_r_tp: null
+      max_hold_bars: null
+      stop_atr_cap: 1.5
+  SOL_USDT:
+    enabled: true
+    capital_usd: 1500
+    leverage: 3
+    exit:
+      mode: both
+      fixed_r_tp: null
+      max_hold_bars: null
+      stop_atr_cap: 1.5

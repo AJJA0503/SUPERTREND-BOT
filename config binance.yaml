@@ -1,0 +1,31 @@
+exchange: binance
+enabled: false
+testnet: true
+assets:
+  BTCUSDT:
+    enabled: true
+    capital_usd: 5000
+    leverage: 5
+    exit:
+      mode: both
+      fixed_r_tp: null
+      max_hold_bars: null
+      stop_atr_cap: 1.5
+  ETHUSDT:
+    enabled: true
+    capital_usd: 3000
+    leverage: 3
+    exit:
+      mode: both
+      fixed_r_tp: null
+      max_hold_bars: null
+      stop_atr_cap: 1.5
+  SOLUSDT:
+    enabled: true
+    capital_usd: 2000
+    leverage: 2
+    exit:
+      mode: both
+      fixed_r_tp: null
+      max_hold_bars: null
+      stop_atr_cap: 1.5

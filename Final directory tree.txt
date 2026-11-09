@@ -1,0 +1,49 @@
+futures_trend_bot/
+├── .env                    # your real keys (not committed)
+├── .env.example
+├── README.md
+├── REQUIREMENTS.md
+├── TELEGRAM_COMMANDS.txt
+├── requirements.txt
+├── run.sh                  # chmod +x
+├── config/
+│   ├── strategy.yaml
+│   ├── binance.yaml
+│   ├── gateio.yaml
+│   └── web.yaml
+├── data/
+│   ├── csv/                # created at runtime
+│   └── logs/
+├── state/                  # created at runtime
+├── src/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── settings.py
+│   ├── state_manager.py
+│   ├── utils.py
+│   ├── indicators.py
+│   ├── strategy.py
+│   ├── risk.py
+│   ├── portfolio.py
+│   ├── metrics.py
+│   ├── reporting.py
+│   ├── engine.py
+│   ├── telegram_bot.py
+│   ├── exchanges/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── binance_adapter.py
+│   │   └── gateio_adapter.py
+│   └── web_dashboard/
+│       ├── __init__.py
+│       ├── app.py
+│       ├── templates/
+│       │   └── index.html
+│       └── static/
+│           └── style.css
+├── tests/
+│   ├── test_indicators.py
+│   ├── test_risk.py
+│   └── test_metrics.py
+└── systemd/
+    └── futures-trend-bot.service

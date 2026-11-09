@@ -1,0 +1,10 @@
+/start, /help        Show command list
+/status              Equity, open count, HALTED flag
+/dashboard           Per-asset: price, side, qty, R, stop, leverage
+/positions           Detailed open positions
+/report              WR, PF, Sharpe, PnL, DD per exchange
+/trades              Last 5 closed trades per exchange
+/config              Dump current config
+/set <ex> <sym> <k>=<v>   enabled | capital_usd | leverage | exit.*
+/kill                Flatten all + halt
+/run                 Resume after kill

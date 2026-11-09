@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Futures Trend Bot</title>
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>Futures Trend Bot</h1>
+    <div>
+      <button onclick="kill()" style="background:#b00;color:#fff">KILL</button>
+      <button onclick="run()">RUN</button>
+    </div>
+  </header>
+  <main>
+    <section id="engines"></section>
+    <section id="metrics"></section>
+    <section id="trades"></section>
+  </main>
+</div>
+<script>
+const TOKEN = new URLSearchParams(location.search).get("token");
+const H = {"x-auth": TOKEN};
+async function j(url){ const r = await fetch(url,{headers:H}); return r.json(); }
+async function kill(){ await fetch("/api/kill",{method:"POST",headers:H}); }
+async function run(){  await fetch("/api/run", {method:"POST",headers:H}); }
+async function refresh(){
+  const s = await j("/api/state");
+  const m = await j("/api/metrics");
+  document.getElementById("engines").innerHTML = Object.entries(s.engines).map(([n,e])=>`
+    <div class="card"><h3>${n} — $${e.equity.toFixed(2)} ${s.halted?'<span class="red">HALTED</span>':''}</h3>
+      <table><tr><th>sym</th><th>side</th><th>qty</th><th>entry</th><th>price</th><th>R</th><th>lev</th><th>stop</th></tr>
+      ${e.positions.map(p=>`<tr><td>${p.symbol}</td><td>${p.side>0?'LONG':'SHORT'}</td><td>${p.qty}</td>
+        <td>${p.entry.toFixed(4)}</td><td>${p.price.toFixed(4)}</td>
+        <td class="${p.r>=0?'green':'red'}">${p.r.toFixed(2)}</td><td>${p.lev}x</td><td>${p.stop.toFixed(4)}</td></tr>`).join("")}
+      </table></div>`).join("");
+  document.getElementById("metrics").innerHTML = Object.entries(m).map(([n,s])=>`
+    <div class="card"><h3>${n}</h3>
+      trades=${s.trades} | WR=${(s.win_rate*100).toFixed(1)}% |
+      PF=${(s.profit_factor||0).toFixed(2)} | Sharpe=${(s.sharpe||0).toFixed(2)} |
+      PnL=$${(s.total_pnl||0).toFixed(2)} | DD=${(s.max_dd*100).toFixed(1)}%
+    </div>`).join("");
+}
+setInterval(refresh, 5000); refresh();
+</script>
+</body>
+</html>

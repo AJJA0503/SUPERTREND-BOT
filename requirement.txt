@@ -1,0 +1,36 @@
+# core
+python-dotenv==1.0.1
+pydantic==2.7.1
+pydantic-settings==2.2.1
+PyYAML==6.0.1
+numpy==1.26.4
+pandas==2.2.2
+python-dateutil==2.9.0
+
+# exchanges
+ccxt==4.3.11
+websockets==12.0
+aiohttp==3.9.5
+
+# telegram
+python-telegram-bot==21.1
+httpx==0.27.0
+
+# web dashboard
+fastapi==0.111.0
+uvicorn[standard]==0.30.0
+jinja2==3.1.4
+plotly==5.22.0
+
+# reporting / metrics
+openpyxl==3.1.2
+tabulate==0.9.0
+
+# ops
+apscheduler==3.10.4
+tenacity==8.3.0
+structlog==24.1.0
+
+# dev
+pytest==8.2.0
+pytest-asyncio==0.23.6
